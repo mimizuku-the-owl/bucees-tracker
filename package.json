@@ -7,7 +7,7 @@
     "tooling/typescript"
   ],
   "scripts": {
-    "build": "bun run --filter='@bucees-tracker/*' build",     
+    "build": "bun run --filter='@bucees-tracker/*' build",
     "clean": "rm -rf packages/*/dist packages/*/coverage",
     "changeset": "changeset",
     "release": "bun run build && changeset version && changeset publish"
