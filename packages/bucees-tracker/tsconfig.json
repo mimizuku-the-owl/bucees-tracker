@@ -1,5 +1,5 @@
 {
-  "extends": "@bucees-tracker/tsconfig/compiled-package.json",
+  "extends": "@bucees-tracker/tsconfig/library.json",
   "include": ["src"],
   "exclude": ["node_modules"]
 }

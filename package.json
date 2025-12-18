@@ -3,7 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "workspaces": [
-    "packages/bucess-tracker",
+    "packages/bucees-tracker",
     "tooling/typescript"
   ],
   "scripts": {

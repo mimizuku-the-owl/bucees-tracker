@@ -23,14 +23,6 @@
       "import": "./dist/esm/index.js",
       "types": "./src/index.ts"
     },
-    "./read-input": {
-      "import": "./dist/esm/read-input.js",
-      "types": "./src/read-input.ts"
-    },
-    "./cli": {
-      "import": "./dist/esm/cli/aoc-cli.js",
-      "types": "./src/cli/aoc-cli.ts"
-    },
     "./*": {
       "import": "./dist/esm/*.js",
       "types": "./src/*.ts"
@@ -41,6 +33,6 @@
     "dist"
   ],
   "dependencies": {
-    "@aoc/tsconfig": "workspace:*"
+    "@bucees-tracker/tsconfig": "workspace:*"
   }
 }
