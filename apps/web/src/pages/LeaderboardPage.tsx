@@ -1,10 +1,9 @@
-const demoRows = [
-  { rank: 1, displayName: "BuckyHunter", totalVisits: 42, uniqueLocations: 18 },
-  { rank: 2, displayName: "RoadSnacker", totalVisits: 33, uniqueLocations: 14 },
-  { rank: 3, displayName: "BeaverScout", totalVisits: 29, uniqueLocations: 12 },
-];
+import { useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
 
 export function LeaderboardPage() {
+  const rows = useQuery(api.leaderboard.top, { limit: 25 });
+
   return (
     <section className="space-y-4">
       <h2 className="text-2xl font-bold">Leaderboard</h2>
@@ -20,14 +19,28 @@ export function LeaderboardPage() {
             </tr>
           </thead>
           <tbody>
-            {demoRows.map((row) => (
-              <tr className="border-t border-zinc-100" key={row.rank}>
-                <td className="px-4 py-3 font-semibold">#{row.rank}</td>
-                <td className="px-4 py-3">{row.displayName}</td>
-                <td className="px-4 py-3">{row.totalVisits}</td>
-                <td className="px-4 py-3">{row.uniqueLocations}</td>
+            {rows === undefined ? (
+              <tr>
+                <td colSpan={4} className="px-4 py-6 text-center text-zinc-400">
+                  Loading…
+                </td>
               </tr>
-            ))}
+            ) : rows.length === 0 ? (
+              <tr>
+                <td colSpan={4} className="px-4 py-6 text-center text-zinc-400">
+                  No check-ins yet. Be the first! 🦫
+                </td>
+              </tr>
+            ) : (
+              rows.map((row) => (
+                <tr className="border-t border-zinc-100" key={row._id}>
+                  <td className="px-4 py-3 font-semibold">#{row.rank}</td>
+                  <td className="px-4 py-3">{row.displayName}</td>
+                  <td className="px-4 py-3">{row.totalVisits}</td>
+                  <td className="px-4 py-3">{row.uniqueLocations}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
