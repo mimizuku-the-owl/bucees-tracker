@@ -1,23 +1,13 @@
 {
   "name": "bucees-tracker",
-  "module": "index.ts",
+  "private": true,
   "type": "module",
   "workspaces": [
-    "packages/bucees-tracker",
-    "tooling/typescript"
+    "apps/*"
   ],
   "scripts": {
-    "build": "bun run --filter='@bucees-tracker/*' build",
-    "clean": "rm -rf packages/*/dist packages/*/coverage",
-    "changeset": "changeset",
-    "release": "bun run build && changeset version && changeset publish"
-  },
-  "devDependencies": {
-    "@changesets/cli": "2.29.8",
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "private": true
+    "dev": "bun --filter web dev",
+    "build": "bun --filter web build",
+    "preview": "bun --filter web preview"
+  }
 }
