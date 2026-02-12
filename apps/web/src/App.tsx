@@ -1,6 +1,10 @@
 import { type ReactNode } from "react";
 import { Link, Navigate, Route, Routes } from "react-router-dom";
 
+import { HomePage } from "./pages/HomePage";
+import { LeaderboardPage } from "./pages/LeaderboardPage";
+import { LoginPage } from "./pages/LoginPage";
+
 const Shell = ({ children }: { children: ReactNode }) => (
   <div className="min-h-screen bg-amber-50 text-zinc-900">
     <header className="border-b border-amber-200 bg-white/70 px-6 py-4 backdrop-blur">
@@ -20,9 +24,9 @@ const Shell = ({ children }: { children: ReactNode }) => (
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Shell>Home</Shell>} />
-      <Route path="/leaderboard" element={<Shell>Leaderboard</Shell>} />
-      <Route path="/login" element={<Shell>Login</Shell>} />
+      <Route path="/" element={<Shell><HomePage /></Shell>} />
+      <Route path="/leaderboard" element={<Shell><LeaderboardPage /></Shell>} />
+      <Route path="/login" element={<Shell><LoginPage /></Shell>} />
       <Route path="*" element={<Navigate replace to="/" />} />
     </Routes>
   );
